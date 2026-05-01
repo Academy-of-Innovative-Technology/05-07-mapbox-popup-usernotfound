@@ -7,11 +7,12 @@ var mapProps = {
 };
 
 var map = new mapboxgl.Map(mapProps);
-mapProps.style = 'mapbox://styles/mapbox/streets-v11';
-
 
 
 const popup = new mapboxgl.Popup({ closeOnClick: false })
-  .setLngLat([-96, 37.8])
-  .setHTML('<h1>Hello World!</h1>')
-  .addTo(map);
+	.setLngLat([-96, 37.8])
+	.setHTML('<h1>Hello World!</h1>');
+
+map.on('load', function () {
+	popup.addTo(map);
+});
